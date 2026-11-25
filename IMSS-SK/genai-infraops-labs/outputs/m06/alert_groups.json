@@ -1,0 +1,77 @@
+[
+  {
+    "group_id": "GRP-0001",
+    "business_service": "Finance Reporting",
+    "root_candidate": "ALR-9011",
+    "child_alert_ids": [
+      "ALR-9027",
+      "ALR-9026",
+      "ALR-9002",
+      "ALR-9007",
+      "ALR-9017",
+      "ALR-9028",
+      "ALR-9025",
+      "ALR-9009",
+      "ALR-9001",
+      "ALR-9006",
+      "ALR-9024",
+      "ALR-9016",
+      "ALR-9030",
+      "ALR-9008",
+      "ALR-9015",
+      "ALR-9010",
+      "ALR-9003",
+      "ALR-9019",
+      "ALR-9014"
+    ],
+    "count": 20
+  },
+  {
+    "group_id": "GRP-0002",
+    "business_service": "Customer Portal",
+    "root_candidate": "ALR-9040",
+    "child_alert_ids": [
+      "ALR-9045",
+      "ALR-9034",
+      "ALR-9042",
+      "ALR-9047",
+      "ALR-9032",
+      "ALR-9033"
+    ],
+    "count": 7
+  },
+  {
+    "group_id": "GRP-0003",
+    "business_service": "Finance Reporting",
+    "root_candidate": "ALR-9029",
+    "child_alert_ids": [
+      "ALR-9023",
+      "ALR-9031",
+      "ALR-9020",
+      "ALR-9004",
+      "ALR-9013",
+      "ALR-9022",
+      "ALR-9005",
+      "ALR-9012",
+      "ALR-9021",
+      "ALR-9018"
+    ],
+    "count": 11
+  },
+  {
+    "group_id": "GRP-0004",
+    "business_service": "Customer Portal",
+    "root_candidate": "ALR-9038",
+    "child_alert_ids": [
+      "ALR-9039",
+      "ALR-9036",
+      "ALR-9035",
+      "ALR-9044",
+      "ALR-9043",
+      "ALR-9046",
+      "ALR-9037",
+      "ALR-9041"
+    ],
+    "count": 9
+  }
+]
