@@ -1,0 +1,20 @@
+db.log: 2026-11-09T09:06:05+05:30 WARN pgbouncer pool=portal active=50/50 waiting=42
+db.log: 2026-11-09T09:06:06+05:30 ERROR pgbouncer pool=portal no more connections allowed (max_client_conn)
+portal-app.log: 2026-11-09T09:06:08+05:30 ERROR portal-api /login failed: timeout acquiring DB connection after 5000ms
+auth-service.log: 2026-11-09T09:06:09+05:30 WARN auth-service upstream portal-api slow, retrying (attempt 3)
+nginx.log: 2026-11-09T09:06:10+05:30 ERROR nginx upstream portal-api timed out -> 504
+db.log: 2026-11-09T09:07:05+05:30 WARN pgbouncer pool=portal active=50/50 waiting=42
+db.log: 2026-11-09T09:07:06+05:30 ERROR pgbouncer pool=portal no more connections allowed (max_client_conn)
+portal-app.log: 2026-11-09T09:07:08+05:30 ERROR portal-api /login failed: timeout acquiring DB connection after 5000ms
+auth-service.log: 2026-11-09T09:07:09+05:30 WARN auth-service upstream portal-api slow, retrying (attempt 3)
+nginx.log: 2026-11-09T09:07:10+05:30 ERROR nginx upstream portal-api timed out -> 504
+db.log: 2026-11-09T09:08:05+05:30 WARN pgbouncer pool=portal active=50/50 waiting=42
+db.log: 2026-11-09T09:08:06+05:30 ERROR pgbouncer pool=portal no more connections allowed (max_client_conn)
+portal-app.log: 2026-11-09T09:08:08+05:30 ERROR portal-api /login failed: timeout acquiring DB connection after 5000ms
+auth-service.log: 2026-11-09T09:08:09+05:30 WARN auth-service upstream portal-api slow, retrying (attempt 3)
+nginx.log: 2026-11-09T09:08:10+05:30 ERROR nginx upstream portal-api timed out -> 504
+db.log: 2026-11-09T09:09:05+05:30 WARN pgbouncer pool=portal active=50/50 waiting=42
+db.log: 2026-11-09T09:09:06+05:30 ERROR pgbouncer pool=portal no more connections allowed (max_client_conn)
+portal-app.log: 2026-11-09T09:09:08+05:30 ERROR portal-api /login failed: timeout acquiring DB connection after 5000ms
+auth-service.log: 2026-11-09T09:09:09+05:30 WARN auth-service upstream portal-api slow, retrying (attempt 3)
+nginx.log: 2026-11-09T09:09:10+05:30 ERROR nginx upstream portal-api timed out -> 504
