@@ -1,0 +1,11 @@
+# Module 5 Diagnosis
+
+| Symptom | Evidence | Root cause | Fix |
+|---|---|---|---|
+| Web service has no reachable backends | `selector: {app: portal-web-v2}` does not match the Deployment label `labels: {app: portal-web}`. | The `portal-web` Service selector selects a label that no portal web pod has. | Change the Service selector to `app: portal-web`, then confirm with `kubectl get endpoints portal-web -n portal`. |
+| Portal API pod cannot pull its image | `image: nginx:1.27-alpine-hotfx` | The image tag is misspelled and is not a valid published nginx tag. | Change the image to `nginx:1.27-alpine` and reapply the Deployment. |
+| Portal ingress hostname does not match the intended customer hostname | `host: portal.exmaple-corp.local` | `exmaple` is misspelled in the Ingress host. | Correct the host to `portal.example-corp.local` and reapply the Ingress. |
+| Report worker is repeatedly terminated with `OOMKilled` | `limits: {cpu: 100m, memory: 32Mi}` | The report worker's memory limit is below its runtime requirement. | Profile the workload and raise the limit to a justified value while keeping the request below the limit, then monitor the pod. |
+| Analytics batch pod remains Pending | `requests: {cpu: "64", memory: 256Gi}` | The requested CPU and memory exceed the capacity available on the cluster nodes. | Reduce the requests to values supported by the node capacity, add appropriately sized nodes, or review whether the workload can run on this cluster. |
+| `kubectl apply` cannot find the manifests | `error: the path "labs/m05/app/" does not exist` | The command was run from the outer checkout, while the lab files are under `IMSS-SK/genai-infraops-labs/labs/m05/app/`. | Change to `/home/manasasebastian/IMSS-SK/IMSS-SK/genai-infraops-labs` before running the apply commands. |
+| Earlier `kubectl` commands fell back to an unreachable local API endpoint | `The connection to the server localhost:8080 was refused - did you specify the right host or port?` | No usable kubeconfig context was active for those commands. | Select the correct kind context with `kubectl config use-context kind-genai-labs`; the later read-only check now shows `server: https://127.0.0.1:42537` and `current-context: kind-genai-labs`. |
