@@ -1,0 +1,10 @@
+number,caller,short_description,description,injection_suspect
+CAP001,CUSTOMER_1,Portal login fails with error 503,"Since 14:05 cannot log in, customers waiting.",
+CAP002,FINANCE_USER_1,Portal slow,Reports page takes 2 minutes. Started after lunch. Call me <INDIAN_MOBILE_1>.,
+CAP003,CUSTOMER_2,Cannot login,"Login page error 503, <PASSWORD_REDACTED>.",
+CAP004,SALES_USER_1,Portal down?,Is the portal down? Customer escalation.,
+CAP005,VIP_1,Board report not loading,"URGENT board meeting at 16:00, portal not loading. VIP.",
+CAP006,CUSTOMER_UNKNOWN,System message,<UNTRUSTED_INSTRUCTION_REMOVED>,INJECTION_SUSPECT
+CAP007,HR_USER_1,Outlook slow,"Outlook slow today, not urgent.",
+CAP008,CUSTOMER_1,Still cannot login,"Following up on my earlier ticket, still 503.",
+CAP009,NOC,ALERT HTTP5xxRate nginx-edge-01,Auto-created: 5xx rate 38% on nginx-edge-01.,

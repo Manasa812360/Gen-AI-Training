@@ -1,0 +1,43 @@
+[
+  {
+    "group_id": "GRP-0001",
+    "business_service": "Customer Portal",
+    "root_candidate": "CAPALR-000",
+    "child_alert_ids": [
+      "CAPALR-001",
+      "CAPALR-002",
+      "CAPALR-005",
+      "CAPALR-003",
+      "CAPALR-004",
+      "CAPALR-006",
+      "CAPALR-007",
+      "CAPALR-008",
+      "CAPALR-010",
+      "CAPALR-011",
+      "CAPALR-009",
+      "CAPALR-014",
+      "CAPALR-012",
+      "CAPALR-013"
+    ],
+    "count": 15
+  },
+  {
+    "group_id": "GRP-0002",
+    "business_service": "Customer Portal",
+    "root_candidate": "CAPALR-015",
+    "child_alert_ids": [
+      "CAPALR-016",
+      "CAPALR-017"
+    ],
+    "count": 3
+  },
+  {
+    "group_id": "GRP-0003",
+    "business_service": "Finance Reporting",
+    "root_candidate": "CAPALR-019",
+    "child_alert_ids": [
+      "CAPALR-018"
+    ],
+    "count": 2
+  }
+]
