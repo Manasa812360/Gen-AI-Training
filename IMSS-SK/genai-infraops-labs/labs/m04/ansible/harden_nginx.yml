@@ -1,0 +1,52 @@
+---
+- name: Harden nginx
+  hosts: all
+  become: true
+  gather_facts: false
+
+  handlers:
+    - name: Restart nginx
+      ansible.builtin.service:
+        name: nginx
+        state: restarted
+
+  tasks:
+    - name: Install nginx
+      ansible.builtin.package:
+        name: nginx
+        state: present
+
+    - name: Check for the nginx configuration directory
+      ansible.builtin.stat:
+        path: /etc/nginx/conf.d
+      register: nginx_conf_dir
+
+    - name: Configure nginx security directives
+      ansible.builtin.copy:
+        dest: /etc/nginx/conf.d/security-headers.conf
+        owner: root
+        group: root
+        mode: "0644"
+        content: |
+          server_tokens off;
+          add_header X-Content-Type-Options "nosniff" always;
+          add_header X-Frame-Options "SAMEORIGIN" always;
+          add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+          add_header Permissions-Policy "geolocation=(), microphone=(), camera=()" always;
+      when: nginx_conf_dir.stat.isdir | default(false)
+      notify: Restart nginx
+
+    - name: Validate nginx configuration
+      ansible.builtin.command:
+        cmd: nginx -t
+      changed_when: false
+      when:
+        - nginx_conf_dir.stat.isdir | default(false)
+        - not ansible_check_mode
+
+    - name: Enable and start nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: true
+      when: nginx_conf_dir.stat.isdir | default(false)

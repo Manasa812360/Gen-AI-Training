@@ -8,6 +8,10 @@ groups:
       severity: warning
     annotations:
       summary: "HighCPU {{ $labels.instance }}"
+      impact: "Sustained high CPU may degrade application performance."
+      first_checks: "Check top CPU processes, system load, and recent deployments."
+      owner_group: "TBD"
+      runbook_url: "TBD"
   - alert: DiskSpaceLow
     expr: (node_filesystem_avail_bytes{mountpoint="/var"} / node_filesystem_size_bytes{mountpoint="/var"}) * 100 < 10
     for: 10m
@@ -15,3 +19,29 @@ groups:
       severity: critical
     annotations:
       summary: "Disk low"
+      impact: "Low disk space may cause service or data write failures."
+      first_checks: "Check /var disk usage, large files, and log retention."
+      owner_group: "TBD"
+      runbook_url: "TBD"
+  - alert: HighMemoryUsage
+    expr: (1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100 > 90
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: "High memory usage on {{ $labels.instance }}"
+      impact: "Sustained high memory usage may cause performance degradation or process termination."
+      first_checks: "Check memory consumers, swap usage, and OOM-killer events."
+      owner_group: "TBD"
+      runbook_url: "TBD"
+  - alert: NodeExporterDown
+    expr: up{job="node"} == 0
+    for: 5m
+    labels:
+      severity: critical
+    annotations:
+      summary: "Node Exporter is down on {{ $labels.instance }}"
+      impact: "Host metrics are unavailable and node health cannot be reliably monitored."
+      first_checks: "Check the node-exporter container, host connectivity, and Prometheus scrape errors."
+      owner_group: "TBD"
+      runbook_url: "TBD"

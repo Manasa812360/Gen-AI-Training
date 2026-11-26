@@ -1,0 +1,13 @@
+ticket,ai_value,human_value,reason
+INC0010238,Printer | P2 | EUC-L2,Printer | P2 | EUC-L2,Approved: multiple users are blocked on a named printer and impact 2 with urgency 1 maps to P2.
+INC0010240,File share | P2 | WINTEL-L2,File share | P2 | WINTEL-L2,Approved: the whole Ops team is blocked and the named file server is managed by WINTEL-L2.
+INC0010242,Performance | P2 | EUC-L2,Performance | P2 | EUC-L2,Approved: P3 timing is raised one level by the VIP override for the imminent board meeting.
+INC0010247,Security | P4 | SECOPS,Security | P4 | SECOPS,Approved: instruction injection is a security concern and must be reviewed even though the mailbox symptom is low urgency.
+INC0010251,Security | P1 | SECOPS,Security | P1 | SECOPS,Approved: correlated failed logins from one external source across Finance users indicate a P1 security incident.
+INC0010252,Security | P1 | SECOPS,Security | P1 | SECOPS,Approved: lockout matches the confirmed multi-user external authentication pattern.
+INC0010253,Security | P1 | SECOPS,Security | P1 | SECOPS,Approved: repeated lockout forms part of the same high-impact password-spray pattern.
+INC0010254,Security | P1 | SECOPS,Security | P1 | SECOPS,Approved: lockout during leave is consistent with the confirmed external authentication attempts.
+INC0010255,Security | P1 | SECOPS,Security | P1 | SECOPS,Approved: month-end impact is part of the same multi-user authentication security incident.
+INC0010256,Security | P1 | SECOPS,Security | P1 | SECOPS,Approved: caller confirms colleague impact and logs show coordinated attempts from one external source.
+INC0010259,Disk space | P2 | LINUX-L2,Disk space | P2 | LINUX-L2,Approved: 96 percent disk use on a production Finance server is urgent and the CI is owned by LINUX-L2.
+INC0010260,Portal | P1 | APP-PORTAL-L2,Portal | P1 | APP-PORTAL-L2,Approved: an externally used service is unavailable with 503 responses so impact 1 and urgency 1 require P1.

@@ -1,0 +1,4 @@
+Incident INC-MAJ-0042 (P1, Customer Portal)
+Response   : 9 min vs target 15 min -> MET
+Resolution : 139 min vs target 240 min -> MET
+Outage window (opened to resolved): 2026-11-05 18:12 to 20:31 IST

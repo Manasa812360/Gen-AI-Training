@@ -1,0 +1,11 @@
+cluster_id,size,top_terms,sample_tickets,mean_handle_time_min
+3,33,vpn; client; client update; disconnects; disconnects minutes; minutes; minutes peer; peer,INC0008006; INC0008021; INC0008027,28.73
+1,26,account locked; locked; account; locked account; locked repeatedly; repeatedly; repeatedly morning; repeatedly urgent,INC0008005; INC0008011; INC0008012,24.42
+5,26,slow; laptop; laptop slow; portal; portal slow; cpu; high; high cpu,INC0008007; INC0008019; INC0008024,48.58
+2,25,password; forgot; forgot password; login; password login; password reset; request; request forgot,INC0008004; INC0008015; INC0008016,7.28
+4,20,loading; loading profile; outlook; profile; opening; opening loading; outlook opening; outlook stuck,INC0008026; INC0008052; INC0008059,24.95
+0,18,queue; stuck; 3f; 3f 01; jobs; jobs stuck; print; print jobs,INC0008000; INC0008001; INC0008010,20.33
+6,16,mailbox; mail; mail mailbox; mailbox send; send; send mail; mailbox team; team,INC0008002; INC0008003; INC0008009,20.06
+7,16,account; account create; account mailbox; ad; ad account; create; create ad; joiner,INC0008008; INC0008020; INC0008025,17.06
+8,10,disk; var; disk space; disk var; low; low var; partition; space,INC0008047; INC0008053; INC0008070,32.40
+9,10,access; access denied; denied; 01 share; denied access; denied fs; drive; drive access,INC0008033; INC0008065; INC0008084,32.50

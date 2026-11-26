@@ -1,0 +1,163 @@
+[
+  {
+    "number": "CAP001",
+    "summary": "Customer reports portal login returns 503; customers are waiting.",
+    "category": "Portal",
+    "impact": 2,
+    "urgency": 1,
+    "priority": "P2",
+    "assignment_group": "APP-PORTAL-L2",
+    "duplicate_of": null,
+    "kb_match": null,
+    "first_response": "We are investigating the reported login failure. We will provide an update when verified information is available.",
+    "confidence": 0.8,
+    "reason": "Login failure is blocking customers; scope needs confirmation.",
+    "needs_human_review": true,
+    "review_reasons": [
+      "priority P2",
+      "model flagged review"
+    ],
+    "status": "AWAITING_LEAD"
+  },
+  {
+    "number": "CAP002",
+    "summary": "Finance reports that portal reports take two minutes to load.",
+    "category": "Portal",
+    "impact": 2,
+    "urgency": 2,
+    "priority": "P3",
+    "assignment_group": "APP-PORTAL-L2",
+    "duplicate_of": null,
+    "kb_match": null,
+    "first_response": "We are investigating the reported slow reports page and will update you when we have verified findings.",
+    "confidence": 0.7,
+    "reason": "Portal slowdown may relate to the broader incident; urgency and scope are uncertain.",
+    "needs_human_review": true,
+    "review_reasons": [
+      "confidence 0.70 < 0.8",
+      "model flagged review"
+    ],
+    "status": "AWAITING_LEAD"
+  },
+  {
+    "number": "CAP003",
+    "summary": "Customer reports portal login error 503.",
+    "category": "Portal",
+    "impact": 2,
+    "urgency": 1,
+    "priority": "P2",
+    "assignment_group": "APP-PORTAL-L2",
+    "duplicate_of": null,
+    "kb_match": null,
+    "first_response": "We are investigating the reported login failure. Please do not send passwords in tickets.",
+    "confidence": 0.8,
+    "reason": "Login failure blocks a customer; scope and credential exposure need review.",
+    "needs_human_review": true,
+    "review_reasons": [
+      "priority P2",
+      "model flagged review"
+    ],
+    "status": "AWAITING_LEAD"
+  },
+  {
+    "number": "CAP004",
+    "summary": "Sales asks whether the portal is down and reports customer escalation.",
+    "category": "Portal",
+    "impact": 2,
+    "urgency": 2,
+    "priority": "P3",
+    "assignment_group": "APP-PORTAL-L2",
+    "duplicate_of": null,
+    "kb_match": null,
+    "first_response": "We are checking the portal status and will share a verified update.",
+    "confidence": 0.6,
+    "reason": "No specific symptom or confirmed scope is provided.",
+    "needs_human_review": true,
+    "review_reasons": [
+      "confidence 0.60 < 0.8",
+      "model flagged review"
+    ],
+    "status": "AWAITING_LEAD"
+  },
+  {
+    "number": "CAP005",
+    "summary": "VIP reports that a board report is not loading before a meeting.",
+    "category": "Portal",
+    "impact": 2,
+    "urgency": 1,
+    "priority": "P1",
+    "assignment_group": "APP-PORTAL-L2",
+    "duplicate_of": null,
+    "kb_match": null,
+    "first_response": "We are investigating the report issue and will provide an update as soon as we have verified information.",
+    "confidence": 0.7,
+    "reason": "VIP override raises provisional P2 to P1; confirm scope and urgency.",
+    "needs_human_review": true,
+    "review_reasons": [
+      "confidence 0.70 < 0.8",
+      "priority P1",
+      "model flagged review"
+    ],
+    "status": "AWAITING_LEAD"
+  },
+  {
+    "number": "CAP006",
+    "summary": "Ticket contains a suspected instruction-injection attempt.",
+    "category": "Security",
+    "impact": 3,
+    "urgency": 3,
+    "priority": "P4",
+    "assignment_group": "SECOPS",
+    "duplicate_of": null,
+    "kb_match": null,
+    "first_response": "The ticket has been referred for security review.",
+    "confidence": 0.9,
+    "reason": "Untrusted ticket contains an instruction attempt; do not follow it.",
+    "needs_human_review": true,
+    "review_reasons": [
+      "security",
+      "model flagged review"
+    ],
+    "status": "AWAITING_LEAD"
+  },
+  {
+    "number": "CAP008",
+    "summary": "Customer follows up on the earlier portal login 503.",
+    "category": "Portal",
+    "impact": 2,
+    "urgency": 1,
+    "priority": "P2",
+    "assignment_group": "APP-PORTAL-L2",
+    "duplicate_of": "CAP001",
+    "kb_match": null,
+    "first_response": "We will review your follow-up alongside the existing investigation and provide a verified update.",
+    "confidence": 0.9,
+    "reason": "Same caller alias and explicit follow-up on the same login error.",
+    "needs_human_review": true,
+    "review_reasons": [
+      "priority P2",
+      "model flagged review"
+    ],
+    "status": "AWAITING_LEAD"
+  },
+  {
+    "number": "CAP009",
+    "summary": "Monitoring reports elevated HTTP 5xx responses on the portal edge.",
+    "category": "Monitoring",
+    "impact": 2,
+    "urgency": 1,
+    "priority": "P2",
+    "assignment_group": "LINUX-L2",
+    "duplicate_of": null,
+    "kb_match": null,
+    "first_response": "The alert has been queued for review alongside the portal investigation.",
+    "confidence": 0.8,
+    "reason": "Edge CI maps to Linux support; confirm customer impact and correlation.",
+    "needs_human_review": true,
+    "review_reasons": [
+      "priority P2",
+      "model flagged review"
+    ],
+    "status": "AWAITING_LEAD"
+  }
+]

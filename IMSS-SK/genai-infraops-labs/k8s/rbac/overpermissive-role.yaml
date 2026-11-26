@@ -1,11 +1,11 @@
-# Lab 5.2 - over-permissive Role generated "to make it work". Reduce to least privilege.
+# Lab 5.2 - least-privilege read-only access for desk support.
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata: {name: desk-support, namespace: portal}
 rules:
-- apiGroups: ["*"]
-  resources: ["*"]
-  verbs: ["*"]
+- apiGroups: [""]
+  resources: ["pods", "pods/log"]
+  verbs: ["get", "list", "watch"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding

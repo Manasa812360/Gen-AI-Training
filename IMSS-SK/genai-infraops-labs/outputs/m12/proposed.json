@@ -1,0 +1,18 @@
+[
+  {
+    "number": "CAP007",
+    "summary": "HR reports Outlook is slow and not urgent.",
+    "category": "Email",
+    "impact": 3,
+    "urgency": 3,
+    "priority": "P4",
+    "assignment_group": "WINTEL-L2",
+    "duplicate_of": null,
+    "kb_match": null,
+    "first_response": "We will investigate the Outlook performance issue and follow up with you.",
+    "confidence": 0.85,
+    "reason": "Single reported user and explicitly non-urgent email performance issue.",
+    "needs_human_review": false,
+    "status": "PROPOSED"
+  }
+]

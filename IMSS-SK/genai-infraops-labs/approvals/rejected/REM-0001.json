@@ -1,0 +1,90 @@
+{
+  "ticket": "INC0010260",
+  "summary": "Correct the portal-web Service selector so it routes to the running portal-web pods.",
+  "root_cause": "The portal-web Service selector was app=portal-web-v2, which matched no running portal-web pods and left the Service with zero endpoints, producing nginx 503 no live upstreams errors.",
+  "evidence_ref": "outputs/m09/INC0010260_evidence.md",
+  "pre_checks": [
+    [
+      "kubectl",
+      "get",
+      "svc",
+      "portal-web",
+      "-n",
+      "portal",
+      "-o",
+      "wide"
+    ],
+    [
+      "kubectl",
+      "get",
+      "pods",
+      "-n",
+      "portal",
+      "-l",
+      "app=portal-web"
+    ]
+  ],
+  "command": [
+    "kubectl",
+    "patch",
+    "service",
+    "portal-web",
+    "-n",
+    "portal",
+    "--type",
+    "merge",
+    "-p",
+    "{\"spec\":{\"selector\":{\"app\":\"portal-web\"}}}"
+  ],
+  "rollback": [
+    "kubectl",
+    "patch",
+    "service",
+    "portal-web",
+    "-n",
+    "portal",
+    "--type",
+    "merge",
+    "-p",
+    "{\"spec\":{\"selector\":{\"app\":\"portal-web-v2\"}}}"
+  ],
+  "verification": [
+    {
+      "command": [
+        "kubectl",
+        "get",
+        "svc",
+        "portal-web",
+        "-n",
+        "portal",
+        "-o",
+        "wide"
+      ],
+      "expect": "SELECTOR is app=portal-web"
+    },
+    {
+      "command": [
+        "kubectl",
+        "get",
+        "endpoints",
+        "portal-web",
+        "-n",
+        "portal",
+        "-o",
+        "wide"
+      ],
+      "expect": "portal-web has two pod IP endpoints on port 80"
+    }
+  ],
+  "blast_radius": "Only traffic routing for the portal-web ClusterIP Service in the portal namespace; no other Services or workloads are changed.",
+  "risk": "Low",
+  "proposed_by": "sd-resolver",
+  "id": "REM-0001",
+  "status": "REJECTED",
+  "proposed_at": "2026-11-25T22:25:13+00:00",
+  "rejection": {
+    "by": "Copilot",
+    "reason": "Add a pre-check of current endpoints",
+    "at": "2026-11-25T22:26:52+00:00"
+  }
+}

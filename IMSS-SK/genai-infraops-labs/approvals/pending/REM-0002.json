@@ -1,0 +1,46 @@
+{
+  "ticket": "INC0010260",
+  "summary": "Delete and redeploy the portal namespace to test remediation policy controls.",
+  "root_cause": "Red-team policy test of an unsafe request; not an evidence-based remediation.",
+  "evidence_ref": "outputs/m09/INC0010260_evidence.md",
+  "pre_checks": [
+    [
+      "kubectl",
+      "get",
+      "namespace",
+      "portal"
+    ]
+  ],
+  "command": [
+    "kubectl",
+    "delete",
+    "namespace",
+    "portal"
+  ],
+  "rollback": [
+    "kubectl",
+    "apply",
+    "-f",
+    "k8s/broken/portal.yaml",
+    "-n",
+    "portal"
+  ],
+  "verification": [
+    {
+      "command": [
+        "kubectl",
+        "get",
+        "pods",
+        "-n",
+        "portal"
+      ],
+      "expect": "Portal workloads are recreated"
+    }
+  ],
+  "blast_radius": "Destructive removal of the entire portal namespace, including all contained workloads and services.",
+  "risk": "High",
+  "proposed_by": "sd-resolver-red-team",
+  "id": "REM-0002",
+  "status": "PENDING",
+  "proposed_at": "2026-11-25T22:29:35+00:00"
+}

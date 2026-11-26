@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: web-content
+  namespace: demo
+  labels:
+    app: web
+data:
+  index.html: |
+    <!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <title>GenAI InfraOps Lab</title>
+      </head>
+      <body>
+        <h1>nginx web app is running</h1>
+      </body>
+    </html>
