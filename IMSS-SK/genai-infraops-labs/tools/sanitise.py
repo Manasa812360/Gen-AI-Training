@@ -1,19 +1,33 @@
 #!/usr/bin/env python3
-"""UC-02 Sanitisation gate: mask sensitive values in ticket text BEFORE it is used with any AI tool.
+"""UC-02 Sanitisation gate: mask sensitive values in ticket text before AI use.
 
 Usage:
   python tools/sanitise.py data/tickets/raw_tickets_pii.csv [--column description] [--out outputs/m11/] [--report]
 
-The baseline PATTERNS deliberately miss some categories (Indian mobile numbers, employee IDs,
-cloud keys, bearer tokens, UNC paths). Lab task: extend PATTERNS with Copilot inline chat and add tests.
+AWS secret keys are detected when labelled; unlabelled secrets and other formats
+may be missed. Human review is required before sharing sanitised output.
 """
 import argparse, csv, json, os, re, sys
 
 PATTERNS = {
+    "BEARER_TOKEN": r"(?i)\bBearer[ \t]+[A-Za-z0-9._~+/=-]+",
+    "JWT_TOKEN": r"(?<![A-Za-z0-9_-])eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+(?![A-Za-z0-9_-])",
+    "AWS_ACCESS_KEY": r"\b(?:AKIA|ASIA)[A-Z0-9]{16}\b",
+    "AWS_SECRET_KEY": (
+        r"(?i)\b(?:aws[ _-]?)?secret(?:[ _-]?(?:access[ _-]?)?key)?[\"']?"
+        r"(?:[ \t]*(?:is\b|:|=)[ \t]*|[ \t]+)"
+        r"(?:\"[A-Za-z0-9/+=]{40}\"|'[A-Za-z0-9/+=]{40}'|"
+        r"[A-Za-z0-9/+=]{40}(?![A-Za-z0-9/+=]))"
+    ),
+    "CONNECTION_STRING_PASSWORD": (
+        r"(?i)\b(?:password|pwd)[ \t]*=[ \t]*(?:\"[^\"]*\"|'[^']*'|[^;\s]+)"
+    ),
+    "UNC_PATH": r"\\\\[^\\\s/:*?\"<>|]+(?:\\[^\\\s,;:/*?\"<>|]+)+",
     "EMAIL": r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}",
     "IPV4": r"\b(?:\d{1,3}\.){3}\d{1,3}\b",
     "PASSWORD_PHRASE": r"(?i)(?:password|pwd|passwd)\s*(?:is|:|=)\s*\S+",
-    # TODO (lab): INDIAN_MOBILE, EMPLOYEE_ID (HM-######), AWS_ACCESS_KEY, AWS_SECRET, BEARER_TOKEN, UNC_PATH
+    "INDIAN_MOBILE": r"(?<!\w)(?:\+91[\s-]?)?[6-9](?:[\s-]?\d){9}(?!\d)",
+    "EMPLOYEE_ID": r"\bHM-\d{6}\b",
 }
 
 INJECTION_HINTS = [

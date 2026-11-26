@@ -1,0 +1,78 @@
+[
+  {
+    "ticket": "INC0010301",
+    "masked": [
+      "PASSWORD_PHRASE",
+      "INDIAN_MOBILE"
+    ],
+    "injection_suspect": false
+  },
+  {
+    "ticket": "INC0010302",
+    "masked": [
+      "EMAIL",
+      "IPV4",
+      "EMPLOYEE_ID"
+    ],
+    "injection_suspect": false
+  },
+  {
+    "ticket": "INC0010303",
+    "masked": [
+      "AWS_ACCESS_KEY",
+      "AWS_SECRET_KEY"
+    ],
+    "injection_suspect": false
+  },
+  {
+    "ticket": "INC0010304",
+    "masked": [
+      "BEARER_TOKEN"
+    ],
+    "injection_suspect": false
+  },
+  {
+    "ticket": "INC0010305",
+    "masked": [
+      "UNC_PATH",
+      "PASSWORD_PHRASE",
+      "INDIAN_MOBILE"
+    ],
+    "injection_suspect": false
+  },
+  {
+    "ticket": "INC0010306",
+    "masked": [
+      "EMAIL",
+      "IPV4",
+      "EMPLOYEE_ID"
+    ],
+    "injection_suspect": false
+  },
+  {
+    "ticket": "INC0010247",
+    "masked": [],
+    "injection_suspect": true
+  },
+  {
+    "ticket": "INC0010307",
+    "masked": [
+      "CONNECTION_STRING_PASSWORD",
+      "IPV4"
+    ],
+    "injection_suspect": false
+  },
+  {
+    "ticket": "INC0010308",
+    "masked": [],
+    "injection_suspect": false
+  },
+  {
+    "ticket": "INC0010309",
+    "masked": [
+      "EMAIL",
+      "INDIAN_MOBILE"
+    ],
+    "injection_suspect": false
+  }
+]
